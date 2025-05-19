@@ -17,7 +17,7 @@
 				},
 				body: JSON.stringify({
 					html: pageText,
-					apiKey: 'AIzaSyC3tq7Cbk27YGoOK_-duIqe1Nw2Ls3UaJ0',
+					apiKey: '',
 				}),
 			});
 
