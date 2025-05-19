@@ -1,0 +1,27 @@
+{
+  "name": "my-bookmarklet-project",
+  "version": "1.0.0",
+  "description": "A bookmarklet that scans the current page for events, interacts with an external LLM, and generates ICS links for calendar integration.",
+  "main": "src/marklet.js",
+  "scripts": {
+    "build": "echo 'Building the bookmarklet...'",
+    "start": "echo 'Starting the bookmarklet...'"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "modal-library": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "babel": "^7.15.0"
+  },
+  "keywords": [
+    "bookmarklet",
+    "events",
+    "calendar",
+    "ICS",
+    "LLM"
+  ],
+  "author": "Kyle Christensen",
+  "license": "MIT"
+}
