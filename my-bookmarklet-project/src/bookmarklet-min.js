@@ -1,11 +1,17 @@
-javascript:void((function () {
+javascript: void (function () {
 	async function e(e) {
 		try {
-			let t = await fetch('http://localhost:3000/events', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ html: e }),
-			});
+			let t = await fetch(
+				'https://event-bookmarklet-server.onrender.com/events',
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						html: e,
+						apiKey: 'your api key here',
+					}),
+				},
+			);
 			if (!t.ok) {
 				let n = await t.text();
 				return (
@@ -218,7 +224,7 @@ javascript:void((function () {
 								(a.style.border = 'none'),
 								(a.style.borderRadius = '4px'),
 								(a.style.cursor = 'pointer'),
-								(a.style.marginTop = '16px'),
+								(a.style.marginTop = '5px'),
 								(a.onclick = function () {
 									let t = (function e(t, n) {
 										if (!t || !t.title || !t.date)
@@ -265,14 +271,14 @@ javascript:void((function () {
 											} else {
 												let $ = new Date(Date.UTC(o, i, a, p, g, u)),
 													m = new Date($.getTime() + 36e5),
-													f = (e) =>
+													C = (e) =>
 														e.toISOString().replace(/[-:.]/g, '').slice(0, 15) +
 														'Z';
-												(l = f($)), (r = f(m));
+												(l = C($)), (r = C(m));
 											}
 										} else {
-											let C = new Date(Date.UTC(o, i, a));
-											l = s(C);
+											let f = new Date(Date.UTC(o, i, a));
+											l = s(f);
 											let b = new Date(Date.UTC(o, i, a + 1));
 											r = s(b);
 										}
@@ -315,4 +321,4 @@ ${t.description || ''}`,
 			});
 		}),
 		document.body.appendChild(n);
-})());
+})();

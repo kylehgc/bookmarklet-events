@@ -1,4 +1,3 @@
-// This file contains the main logic for the bookmarklet. It scans the current page for events, interacts with the external LLM (likely Gemini Flash) to process the event data, and generates an ICS link for the user to add selected events to their calendar. It includes functions to handle event selection and modal display.
 (function () {
 	// Function to scan the current page for events
 	function scanForEvents() {
@@ -8,7 +7,7 @@
 
 	// Function to call the external LLM and process event data
 	async function processEvents(pageText) {
-		const url = `http://localhost:3000/events`;
+		const url = `https://event-bookmarklet-server.onrender.com/events`;
 
 		try {
 			const response = await fetch(url, {
@@ -16,7 +15,10 @@
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ html: pageText }),
+				body: JSON.stringify({
+					html: pageText,
+					apiKey: 'AIzaSyC3tq7Cbk27YGoOK_-duIqe1Nw2Ls3UaJ0',
+				}),
 			});
 
 			if (!response.ok) {
